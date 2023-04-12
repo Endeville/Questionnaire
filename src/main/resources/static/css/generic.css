@@ -1,0 +1,33 @@
+body{
+    font-family: "Calibri", serif;
+}
+
+.box{
+    margin: 10px;
+}
+.box>input{
+    width: 200px;
+    height: 25px;
+}
+
+.question{
+    width: 500px;
+    height: 50px;
+    margin: 10px;
+}
+.option{
+    width: 200px;
+    height: 40px;
+    margin: 5px;
+}
+
+
+.invalid-field{
+    border-color: red !important;
+}
+
+
+.error{
+    text-align: left !important;
+    color: red !important;
+}

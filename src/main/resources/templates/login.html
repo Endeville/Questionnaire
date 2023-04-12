@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+  <th:block th:replace="~{/fragments/head.html}"/>
+</head>
+<body>
+  <form th:action="@{/users/login}" th:method="POST">
+    <div class="box">
+      <input type="text" name="username" tabindex="1" placeholder="Username" th:value="${username}" id="log_username">
+    </div>
+    <div class="box">
+      <input type="password" name="password" tabindex="1" placeholder="Password" id="log_password">
+        <div class="error">
+        <span th:if="${param.error}">
+          Could not find a user with the given credentials
+        </span>
+        </div>
+    </div>
+
+    <div class="box">
+      <input type="submit" value="Log In">
+    </div>
+  </form>
+</body>
+</html>

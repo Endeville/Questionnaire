@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+  <th:block th:replace="~{/fragments/head.html}"/>
+</head>
+<body>
+<form th:action="@{/questions/{nextQuestion} (nextQuestion= ${nextQuestion})}" th:method="GET" th:object="${profile}">
+  <div class="box">
+    Username: <strong th:text="*{username}">My Username</strong>
+  </div>
+  <div class="box">
+    Email: <strong th:text="*{email}">My Email</strong>
+  </div>
+  <div class="box">
+    Attempts: <strong th:text="*{attempts}">My Attempts</strong>
+  </div>
+  <div class="box">
+    Right answers: <strong th:text="*{rightAnswers}">My Email</strong>
+  </div>
+  <div class="box">
+    <input type="submit" value="Start">
+  </div>
+</form>
+</body>
+</html>

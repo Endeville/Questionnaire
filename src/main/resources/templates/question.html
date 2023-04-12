@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+  <th:block th:replace="~{/fragments/head.html}"/>
+
+<!--  <script th:src="@{/js/check.js}" type="module"></script>-->
+</head>
+<body>
+<form th:action="@{/questions/{id}/check (id=${id})}" th:method="POST" th:object="${question}">
+  <div class="question" th:id="${id}">
+    <strong th:text="*{description}">This is where the question should be</strong>
+  </div>
+  <div class="option" th:each="answer : *{answers}">
+    <input th:type="*{questionType}=='ONE_ANSWER' ? 'radio' : 'checkbox'" name="answer" th:value="${answer.id}" th:id="${answer.id}">
+    <label th:for="${answer.id}" th:text="${answer.answer}">Option</label>
+  </div>
+  <div class="box">
+    <input id="checkBtn" type="submit" value="Check">
+  </div>
+</form>
+</body>
+
+
+</html>

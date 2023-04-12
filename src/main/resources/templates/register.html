@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+  <th:block th:replace="~{/fragments/head.html}"/>
+</head>
+<body>
+<form th:action="@{/users/register}" th:method="post" th:object="${user}">
+  <div class="box">
+    <input type="text" name="username" tabindex="1" placeholder="Username" th:field="*{username}">
+    <div class="error" th:text="${#strings.listJoin(#fields.errors('username'), '; ')}">
+    </div>
+  </div>
+  <div class="box">
+    <input type="text" name="email" tabindex="1" placeholder="Email" th:field="*{email}">
+    <div class="error" th:text="${#strings.listJoin(#fields.errors('email'), '; ')}">
+    </div>
+  </div>
+  <div class="box">
+    <input type="password" name="password" tabindex="1" placeholder="Password" th:field="*{password}">
+    <div class="error" th:text="${#strings.listJoin(#fields.errors('password'), '; ')}">
+    </div>
+  </div>
+  <div class="box">
+    <input type="password" name="rePass" tabindex="1" placeholder="Repeat Password" th:field="*{rePass}">
+    <div class="error" th:text="${#strings.listJoin(#fields.errors('rePass'), '; ')}">
+    </div>
+  </div>
+  <div class="box">
+    <input type="submit" value="Register">
+  </div>
+</form>
+</body>
+</html>
