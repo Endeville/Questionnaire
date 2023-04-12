@@ -6,7 +6,6 @@
 <head>
   <th:block th:replace="~{/fragments/head.html}"/>
 
-<!--  <script th:src="@{/js/check.js}" type="module"></script>-->
 </head>
 <body>
 <form th:action="@{/questions/{id}/check (id=${id})}" th:method="POST" th:object="${question}">
